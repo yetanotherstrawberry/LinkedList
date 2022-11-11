@@ -4,34 +4,26 @@ using System.Collections.Generic;
 
 namespace Collection
 {
-    public partial class LinkedList<T> : IEnumerable<T>, IEnumerable
+    public partial class LinkedListClass<T> : IEnumerable<T>, IEnumerable
     {
         private class Enumerator : IEnumerator<T>
         {
-            private readonly LinkedList<T> list;
+            private readonly LinkedListClass<T> list;
             private int index = -1;
 
             public T Current
             {
                 get
                 {
-                    try
-                    {
-                        if (index < 0) throw new IndexOutOfRangeException();
-                        return list[(uint)index];
-                    }
-                    catch (IndexOutOfRangeException)
-                    {
-                        throw new InvalidOperationException();
-                    }
+                    if (index < 0) throw new IndexOutOfRangeException();
+                    return list[(uint)index];
                 }
             }
 
-            object IEnumerator.Current
+            object? IEnumerator.Current
             {
                 get
                 {
-                    if (Current == null) throw new InvalidOperationException();
                     return Current;
                 }
             }
@@ -47,7 +39,7 @@ namespace Collection
 
             public void Reset() => index = -1;
 
-            public Enumerator(LinkedList<T> list) => this.list = list;
+            public Enumerator(LinkedListClass<T> list) => this.list = list;
         }
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator() => new Enumerator(this);

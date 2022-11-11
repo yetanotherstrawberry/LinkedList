@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Collection
 {
-    public partial class LinkedList<T>
+    public partial class LinkedListClass<T>
     {
         private class LinkedListObject
         {
@@ -92,9 +92,9 @@ namespace Collection
             foreach (T element in elements) Add(element);
         }
 
-        public LinkedList() { }
-        public LinkedList(IEnumerable<T> objects) => AddElements(objects);
-        public LinkedList(params T[] objects) => AddElements(objects);
+        public LinkedListClass() { }
+        public LinkedListClass(IEnumerable<T> objects) => AddElements(objects);
+        public LinkedListClass(params T[] objects) => AddElements(objects);
 
     }
 }

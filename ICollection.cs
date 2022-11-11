@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Collection
 {
-    public partial class LinkedList<T> : ICollection<T>
+    public partial class LinkedListClass<T> : ICollection<T>
     {
         public int Count { get; private set; } = 0;
         public bool IsReadOnly => false;
